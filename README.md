@@ -1,6 +1,10 @@
 # Velora Hotel - Luxury Hotel Website
 
-A full-stack hotel website with booking system, blog, and admin panel.
+A comprehensive full-stack hotel website featuring a modern design, complete booking system, blog management, and administrative panel. Built with PHP, MySQL, HTML, CSS, and JavaScript.
+
+## About Velora Hotel
+
+Velora Hotel represents luxury, elegance, and exceptional hospitality. Located in the heart of Addis Ababa, just steps from Bole International Airport, our hotel offers the perfect blend of Ethiopian tradition and modern sophistication.
 
 ## Features
 
@@ -33,8 +37,8 @@ A full-stack hotel website with booking system, blog, and admin panel.
 1. **Clone the repository**
 
 ```bash
-git clone <repository-url>
-cd velora-hotel
+git clone https://github.com/yeabkal1001/assignment-gelila-and-yeabsira.git
+cd assignment-gelila-and-yeabsira
 ```
 
 2. **Create a MySQL database**
@@ -128,7 +132,14 @@ Most content can be edited through the admin panel. For structural changes, modi
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
+## Developers
+
+This project was developed by:
+
+- **Yeabsira Kayel** - Full Stack Developer
+- **Gelila Gebeyehu** - Full Stack Developer
+
 ## Credits
 
-- Design and Development: [Your Name]
+- Design and Development: Yeabsira Kayel and Gelila Gebeyehu
 - Images: Sample images used for demonstration purposes only
