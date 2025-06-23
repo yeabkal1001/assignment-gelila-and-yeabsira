@@ -1,7 +1,7 @@
 <?php
 /**
  * Home Page
- * 
+ *
  * This is the main landing page for the Velora Hotel website.
  */
 
@@ -21,13 +21,13 @@ $blog_posts = getBlogPosts(3);
 
 // Include header
 $page_title = 'Luxury Redefined';
-include 'includes/header.php';
+include_once 'includes/header.php';
 ?>
 
     <!-- Hero Section -->
     <section class="hero" style="background-image: url('images/hero section.png');">
       <div class="hero-overlay"></div>
-      
+
       <!-- Hero Content -->
       <div class="hero-content">
         <div class="hero-stars">
@@ -40,7 +40,7 @@ include 'includes/header.php';
         <h1 class="hero-title">The Best Luxury Hotel Velora Hotel</h1>
         <button class="hero-discover-btn" onclick="window.location.href='#rooms'">Discover More</button>
       </div>
-      
+
       <!-- Phone Number -->
       <div class="hero-phone">
         <div class="hero-phone-number">+251909090909</div>
@@ -163,7 +163,7 @@ include 'includes/header.php';
                 <h2 class="rooms-title">Rooms & Suites</h2>
                 <p class="rooms-description">Proactively morph optimal infomediaries rather than accurate expertise. Intrinsicly progressive resources rather than resource-leveling</p>
             </div>
-            
+
             <!-- Room Cards Container -->
             <div class="room-cards-container">
                 <?php foreach ($rooms as $room): ?>
@@ -178,7 +178,7 @@ include 'includes/header.php';
                         <div class="room-card-category"><?php echo htmlspecialchars($room['category']); ?></div>
                         <div class="room-card-title"><?php echo htmlspecialchars($room['name']); ?></div>
                         <div class="room-card-size"><?php echo $room['size']; ?> SQ FT/Room</div>
-                        
+
                         <div class="room-card-footer">
                             <div class="room-bed-info">
                                 <img class="room-bed-icon" src="images/Frame 60.png" alt="Bed Icon" />
@@ -192,7 +192,7 @@ include 'includes/header.php';
                                 <div class="room-rating-star"></div>
                             </div>
                         </div>
-                        
+
                         <div class="room-divider"></div>
                     </div>
                 </div>
@@ -209,18 +209,18 @@ include 'includes/header.php';
                 <div class="story-image-bg"></div>
                 <img class="story-image" src="images/Frame 32 (1).png" alt="Velora Hotel Story" />
             </div>
-            
+
             <!-- Badge -->
             <div class="story-badge">
                 <span class="story-badge-text">Our Story</span>
             </div>
-            
+
             <!-- Title -->
             <h2 class="story-title">Discover the art of Relaxation & Vacationing</h2>
-            
+
             <!-- Description -->
             <p class="story-description">Since 1977, Velora Hotel has been a sanctuary of luxury and comfort in the heart of the city. Our commitment to exceptional service and attention to detail has made us the preferred destination for discerning travelers from around the world.</p>
-            
+
             <!-- Statistics -->
             <div class="story-stats">
                 <div class="story-stat">
@@ -236,7 +236,7 @@ include 'includes/header.php';
                     <div class="story-stat-label">Happy Guests</div>
                 </div>
             </div>
-            
+
             <!-- Button -->
             <button class="story-more-button" onclick="window.location.href='about.php'">
                 More About
@@ -254,9 +254,9 @@ include 'includes/header.php';
 
       <!-- Facilities Grid -->
       <div class="facilities-grid">
-        <?php 
+        <?php
         $facilities = getFacilities();
-        foreach ($facilities as $index => $facility): 
+        foreach ($facilities as $index => $facility):
             if ($index >= 6) break; // Only show first 6 facilities
         ?>
         <div class="facility-card">
@@ -288,13 +288,13 @@ include 'includes/header.php';
 
         <!-- Facilities Items -->
         <div class="facilities-detail-items">
-          <?php foreach ($facilities as $index => $facility): 
+          <?php foreach ($facilities as $index => $facility):
               if ($index >= 3) break; // Only show first 3 detailed facilities
-              
+
               // Alternate layout for even/odd items
               $isEven = $index % 2 === 1;
           ?>
-          
+
           <?php if (!$isEven): ?>
           <!-- Facility <?php echo str_pad($index + 1, 2, '0', STR_PAD_LEFT); ?> -->
           <div class="facility-detail-item">
@@ -342,7 +342,7 @@ include 'includes/header.php';
             <div class="facility-detail-image" style="background-image: url('images/<?php echo htmlspecialchars($facility['image']); ?>');"></div>
           </div>
           <?php endif; ?>
-          
+
           <?php endforeach; ?>
         </div>
       </div>
@@ -444,7 +444,7 @@ include 'includes/header.php';
             gap: 2rem;
           "
         >
-          <?php foreach ($rooms as $index => $room): 
+          <?php foreach ($rooms as $index => $room):
               if ($index >= 4) break; // Only show first 4 rooms as offers
           ?>
           <div style="background-color: var(--velora-white)">
@@ -614,5 +614,5 @@ include 'includes/header.php';
 
 <?php
 // Include footer
-include 'includes/footer.php';
+include_once 'includes/footer.php';
 ?>

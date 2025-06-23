@@ -1,7 +1,7 @@
 <?php
 /**
  * Booking Confirmation Page
- * 
+ *
  * This page displays the booking confirmation details.
  */
 
@@ -20,9 +20,9 @@ if ($booking_id <= 0) {
 }
 
 // Get booking details
-$stmt = $conn->prepare("SELECT b.*, r.name as room_name, r.price as room_price 
-                        FROM bookings b 
-                        JOIN rooms r ON b.room_id = r.id 
+$stmt = $conn->prepare("SELECT b.*, r.name as room_name, r.price as room_price
+                        FROM bookings b
+                        JOIN rooms r ON b.room_id = r.id
                         WHERE b.id = ?");
 $stmt->bind_param('i', $booking_id);
 $stmt->execute();
@@ -45,7 +45,7 @@ $total_price = $booking['room_price'] * $nights;
 
 // Include header
 $page_title = 'Booking Confirmation';
-include 'includes/header.php';
+include_once 'includes/header.php';
 ?>
 
     <!-- Hero Section -->
@@ -163,18 +163,18 @@ include 'includes/header.php';
             padding: 4rem 0;
             background-color: var(--velora-cream);
         }
-        
+
         .confirmation-container {
             max-width: 800px;
             margin: 0 auto;
             padding: 0 1rem;
         }
-        
+
         .confirmation-header {
             text-align: center;
             margin-bottom: 2rem;
         }
-        
+
         .confirmation-check-icon {
             width: 80px;
             height: 80px;
@@ -187,7 +187,7 @@ include 'includes/header.php';
             font-size: 2.5rem;
             margin: 0 auto 1.5rem;
         }
-        
+
         .confirmation-title {
             font-family: "Cormorant Garamond", serif;
             font-size: 2.5rem;
@@ -195,18 +195,18 @@ include 'includes/header.php';
             color: var(--velora-dark);
             margin-bottom: 0.5rem;
         }
-        
+
         .confirmation-subtitle {
             font-size: 1.25rem;
             color: var(--velora-dark);
         }
-        
+
         .confirmation-details {
             background-color: var(--velora-white);
             padding: 2rem;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
-        
+
         .confirmation-booking-id {
             text-align: center;
             padding: 1rem;
@@ -214,23 +214,23 @@ include 'includes/header.php';
             margin-bottom: 2rem;
             font-size: 1.25rem;
         }
-        
+
         .confirmation-booking-id strong {
             font-weight: 600;
             color: var(--velora-gold);
             margin-left: 0.5rem;
         }
-        
+
         .confirmation-info {
             display: flex;
             gap: 2rem;
             margin-bottom: 2rem;
         }
-        
+
         .confirmation-info-group {
             flex: 1;
         }
-        
+
         .confirmation-info-group h3 {
             font-family: "Cormorant Garamond", serif;
             font-size: 1.25rem;
@@ -240,30 +240,30 @@ include 'includes/header.php';
             padding-bottom: 0.5rem;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
-        
+
         .confirmation-info-item {
             display: flex;
             justify-content: space-between;
             margin-bottom: 0.5rem;
         }
-        
+
         .confirmation-info-item span:first-child {
             font-weight: 600;
             color: var(--velora-dark);
         }
-        
+
         .confirmation-price {
             background-color: var(--velora-cream);
             padding: 1.5rem;
             margin-bottom: 2rem;
         }
-        
+
         .confirmation-price-item {
             display: flex;
             justify-content: space-between;
             margin-bottom: 0.5rem;
         }
-        
+
         .confirmation-price-total {
             display: flex;
             justify-content: space-between;
@@ -274,11 +274,11 @@ include 'includes/header.php';
             padding-top: 1rem;
             border-top: 1px solid rgba(0, 0, 0, 0.1);
         }
-        
+
         .confirmation-special-requests {
             margin-bottom: 2rem;
         }
-        
+
         .confirmation-special-requests h3 {
             font-family: "Cormorant Garamond", serif;
             font-size: 1.25rem;
@@ -286,7 +286,7 @@ include 'includes/header.php';
             color: var(--velora-dark);
             margin-bottom: 0.5rem;
         }
-        
+
         .confirmation-note {
             background-color: #e8f4f8;
             padding: 1.5rem;
@@ -294,15 +294,15 @@ include 'includes/header.php';
             font-size: 0.875rem;
             line-height: 1.5;
         }
-        
+
         .confirmation-note p {
             margin-bottom: 0.5rem;
         }
-        
+
         .confirmation-actions {
             text-align: center;
         }
-        
+
         .confirmation-action-button {
             display: inline-block;
             background-color: var(--velora-gold);
@@ -312,11 +312,11 @@ include 'includes/header.php';
             font-size: 1rem;
             transition: background-color 0.3s;
         }
-        
+
         .confirmation-action-button:hover {
             background-color: var(--velora-dark);
         }
-        
+
         @media (max-width: 768px) {
             .confirmation-info {
                 flex-direction: column;
@@ -327,5 +327,5 @@ include 'includes/header.php';
 
 <?php
 // Include footer
-include 'includes/footer.php';
+include_once 'includes/footer.php';
 ?>

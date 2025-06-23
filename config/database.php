@@ -1,7 +1,7 @@
 <?php
 /**
  * Database Configuration
- * 
+ *
  * This file contains the database connection settings for the Velora Hotel website.
  */
 
@@ -24,7 +24,7 @@ $conn->set_charset("utf8mb4");
 
 /**
  * Helper function to execute queries and handle errors
- * 
+ *
  * @param string $sql SQL query to execute
  * @param array $params Parameters to bind to the query
  * @param string $types Types of the parameters (i: integer, s: string, d: double, b: blob)
@@ -32,27 +32,27 @@ $conn->set_charset("utf8mb4");
  */
 function executeQuery($sql, $params = [], $types = '') {
     global $conn;
-    
+
     $stmt = $conn->prepare($sql);
-    
+
     if (!$stmt) {
         error_log("Query preparation failed: " . $conn->error);
         return false;
     }
-    
+
     if (!empty($params)) {
         if (empty($types)) {
             // Auto-determine types if not provided
             $types = str_repeat('s', count($params));
         }
-        
+
         $stmt->bind_param($types, ...$params);
     }
-    
+
     if (!$stmt->execute()) {
         error_log("Query execution failed: " . $stmt->error);
         return false;
     }
-    
+
     return $stmt;
 }

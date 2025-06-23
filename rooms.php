@@ -1,7 +1,7 @@
 <?php
 /**
  * Rooms Page
- * 
+ *
  * This page displays all available rooms.
  */
 
@@ -15,7 +15,7 @@ $rooms = getRooms();
 
 // Include header
 $page_title = 'Our Rooms';
-include 'includes/header.php';
+include_once 'includes/header.php';
 ?>
 
     <!-- Hero Section -->
@@ -43,7 +43,7 @@ include 'includes/header.php';
             <div class="rooms-page-header">
                 <h2 class="rooms-page-title">Luxury Accommodations</h2>
                 <p class="rooms-page-description">
-                    Experience the epitome of luxury in our meticulously designed rooms and suites. 
+                    Experience the epitome of luxury in our meticulously designed rooms and suites.
                     Each space is crafted to provide the perfect blend of comfort, elegance, and modern amenities.
                 </p>
             </div>
@@ -92,18 +92,18 @@ include 'includes/header.php';
             padding: 4rem 0;
             background-color: var(--velora-cream);
         }
-        
+
         .rooms-page-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
         }
-        
+
         .rooms-page-header {
             text-align: center;
             margin-bottom: 3rem;
         }
-        
+
         .rooms-page-title {
             font-family: "Cormorant Garamond", serif;
             font-size: 2.5rem;
@@ -111,33 +111,33 @@ include 'includes/header.php';
             color: var(--velora-dark);
             margin-bottom: 1rem;
         }
-        
+
         .rooms-page-description {
             font-size: 1rem;
             color: var(--velora-dark);
             max-width: 700px;
             margin: 0 auto;
         }
-        
+
         .rooms-page-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2rem;
         }
-        
+
         .rooms-page-card {
             background-color: var(--velora-white);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
-        
+
         .rooms-page-card-image {
             height: 250px;
             background-size: cover;
             background-position: center;
             position: relative;
         }
-        
+
         .rooms-page-card-price {
             position: absolute;
             bottom: 0;
@@ -149,26 +149,26 @@ include 'includes/header.php';
             flex-direction: column;
             align-items: center;
         }
-        
+
         .rooms-page-card-price span:first-child {
             font-size: 1.25rem;
             font-weight: 600;
         }
-        
+
         .rooms-page-card-price span:last-child {
             font-size: 0.75rem;
         }
-        
+
         .rooms-page-card-content {
             padding: 1.5rem;
         }
-        
+
         .rooms-page-card-category {
             font-size: 0.875rem;
             color: var(--velora-gold);
             margin-bottom: 0.5rem;
         }
-        
+
         .rooms-page-card-title {
             font-family: "Cormorant Garamond", serif;
             font-size: 1.5rem;
@@ -176,41 +176,41 @@ include 'includes/header.php';
             color: var(--velora-dark);
             margin-bottom: 1rem;
         }
-        
+
         .rooms-page-card-details {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
             margin-bottom: 1rem;
         }
-        
+
         .rooms-page-card-detail {
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
-        
+
         .rooms-page-card-detail-icon {
             font-size: 1rem;
         }
-        
+
         .rooms-page-card-detail-text {
             font-size: 0.875rem;
             color: var(--velora-dark);
         }
-        
+
         .rooms-page-card-description {
             font-size: 0.875rem;
             color: var(--velora-dark);
             margin-bottom: 1.5rem;
             line-height: 1.5;
         }
-        
+
         .rooms-page-card-actions {
             display: flex;
             justify-content: center;
         }
-        
+
         .rooms-page-card-book {
             background-color: var(--velora-gold);
             color: var(--velora-white);
@@ -219,11 +219,11 @@ include 'includes/header.php';
             font-size: 1rem;
             transition: background-color 0.3s;
         }
-        
+
         .rooms-page-card-book:hover {
             background-color: var(--velora-dark);
         }
-        
+
         @media (max-width: 768px) {
             .rooms-page-grid {
                 grid-template-columns: 1fr;
@@ -233,5 +233,5 @@ include 'includes/header.php';
 
 <?php
 // Include footer
-include 'includes/footer.php';
+include_once 'includes/footer.php';
 ?>

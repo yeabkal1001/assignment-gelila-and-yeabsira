@@ -1,7 +1,7 @@
 <?php
 /**
  * Admin Logout
- * 
+ *
  * This file handles admin logout.
  */
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * Database Initialization Script
- * 
+ *
  * This script creates the necessary database tables for the Velora Hotel website.
  * Run this script once to set up the database structure.
  */
@@ -121,7 +121,7 @@ $conn->query($sql_blog);
 
 // Insert default admin user (password: admin123)
 $default_admin_password = password_hash('admin123', PASSWORD_DEFAULT);
-$sql_insert_admin = "INSERT IGNORE INTO users (username, password, email, full_name, role) 
+$sql_insert_admin = "INSERT IGNORE INTO users (username, password, email, full_name, role)
                      VALUES ('admin', ?, 'admin@velorahotel.com', 'Administrator', 'admin')";
 $stmt = $conn->prepare($sql_insert_admin);
 $stmt->bind_param('s', $default_admin_password);
@@ -146,7 +146,7 @@ $sample_rooms = [
     ]
 ];
 
-$sql_insert_room = "INSERT INTO rooms (name, category, price, size, bed_type, capacity, description, image) 
+$sql_insert_room = "INSERT INTO rooms (name, category, price, size, bed_type, capacity, description, image)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql_insert_room);
 
@@ -165,7 +165,7 @@ $sample_facilities = [
     ['Spa & Wellness', 'Relaxation', 'Rejuvenate your body and mind with our premium spa treatments.', 'Frame 60.png', 6]
 ];
 
-$sql_insert_facility = "INSERT INTO facilities (name, category, description, image, display_order) 
+$sql_insert_facility = "INSERT INTO facilities (name, category, description, image, display_order)
                         VALUES (?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql_insert_facility);
 
@@ -188,7 +188,7 @@ $sample_testimonials = [
     ]
 ];
 
-$sql_insert_testimonial = "INSERT INTO testimonials (guest_name, guest_location, rating, message, is_approved) 
+$sql_insert_testimonial = "INSERT INTO testimonials (guest_name, guest_location, rating, message, is_approved)
                           VALUES (?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql_insert_testimonial);
 
@@ -228,7 +228,7 @@ $sample_posts = [
     ]
 ];
 
-$sql_insert_post = "INSERT INTO blog_posts (title, slug, category, content, image, author_id, is_published, published_at) 
+$sql_insert_post = "INSERT INTO blog_posts (title, slug, category, content, image, author_id, is_published, published_at)
                     VALUES (?, ?, ?, ?, ?, ?, ?, NOW())";
 $stmt = $conn->prepare($sql_insert_post);
 

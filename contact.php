@@ -1,7 +1,7 @@
 <?php
 /**
  * Contact Page
- * 
+ *
  * This page displays the contact form and contact information.
  */
 
@@ -20,7 +20,7 @@ unset($_SESSION['contact_form_errors']);
 
 // Include header
 $page_title = 'Contact Us';
-include 'includes/header.php';
+include_once 'includes/header.php';
 ?>
 
     <!-- Hero Section -->
@@ -185,5 +185,5 @@ include 'includes/header.php';
 
 <?php
 // Include footer
-include 'includes/footer.php';
+include_once 'includes/footer.php';
 ?>

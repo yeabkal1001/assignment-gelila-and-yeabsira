@@ -1,7 +1,7 @@
 <?php
 /**
  * About Page
- * 
+ *
  * This page displays information about the hotel.
  */
 
@@ -18,7 +18,7 @@ $blog_posts = getBlogPosts(3);
 
 // Include header
 $page_title = 'About Us';
-include 'includes/header.php';
+include_once 'includes/header.php';
 ?>
 
     <!-- Hero Section -->
@@ -273,5 +273,5 @@ include 'includes/header.php';
 
 <?php
 // Include footer
-include 'includes/footer.php';
+include_once 'includes/footer.php';
 ?>

@@ -1,7 +1,7 @@
 <?php
 /**
  * Admin Dashboard
- * 
+ *
  * This file displays the admin dashboard with summary information.
  */
 
@@ -47,10 +47,10 @@ if ($result && $row = $result->fetch_assoc()) {
 
 // Get recent bookings
 $recent_bookings = [];
-$result = $conn->query("SELECT b.*, r.name as room_name 
-                        FROM bookings b 
-                        JOIN rooms r ON b.room_id = r.id 
-                        ORDER BY b.created_at DESC 
+$result = $conn->query("SELECT b.*, r.name as room_name
+                        FROM bookings b
+                        JOIN rooms r ON b.room_id = r.id
+                        ORDER BY b.created_at DESC
                         LIMIT 5");
 
 if ($result && $result->num_rows > 0) {
@@ -86,30 +86,30 @@ $page_title = 'Admin Dashboard';
             margin: 0 auto;
             padding: 2rem;
         }
-        
+
         .admin-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
         }
-        
+
         .admin-title {
             font-family: "Cormorant Garamond", serif;
             font-size: 2rem;
             font-weight: 600;
             color: var(--velora-dark);
         }
-        
+
         .admin-user-info {
             display: flex;
             align-items: center;
         }
-        
+
         .admin-username {
             margin-right: 1rem;
         }
-        
+
         .admin-logout {
             padding: 0.5rem 1rem;
             background-color: var(--velora-gold);
@@ -117,48 +117,48 @@ $page_title = 'Admin Dashboard';
             text-decoration: none;
             transition: background-color 0.3s;
         }
-        
+
         .admin-logout:hover {
             background-color: var(--velora-dark);
         }
-        
+
         .admin-stats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
-        
+
         .admin-stat-card {
             background-color: var(--velora-white);
             padding: 1.5rem;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .admin-stat-title {
             font-size: 1rem;
             color: var(--velora-dark);
             margin-bottom: 0.5rem;
         }
-        
+
         .admin-stat-value {
             font-size: 2rem;
             font-weight: 600;
             color: var(--velora-gold);
         }
-        
+
         .admin-sections {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
         }
-        
+
         .admin-section {
             background-color: var(--velora-white);
             padding: 1.5rem;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .admin-section-title {
             font-family: "Cormorant Garamond", serif;
             font-size: 1.5rem;
@@ -168,23 +168,23 @@ $page_title = 'Admin Dashboard';
             padding-bottom: 0.5rem;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
-        
+
         .admin-table {
             width: 100%;
             border-collapse: collapse;
         }
-        
+
         .admin-table th, .admin-table td {
             padding: 0.75rem;
             text-align: left;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
-        
+
         .admin-table th {
             font-weight: 600;
             color: var(--velora-dark);
         }
-        
+
         .admin-view-all {
             display: block;
             text-align: center;
@@ -192,24 +192,24 @@ $page_title = 'Admin Dashboard';
             color: var(--velora-gold);
             text-decoration: none;
         }
-        
+
         .admin-view-all:hover {
             text-decoration: underline;
         }
-        
+
         .admin-navigation {
             display: flex;
             background-color: var(--velora-dark);
             margin-bottom: 2rem;
         }
-        
+
         .admin-nav-link {
             padding: 1rem 1.5rem;
             color: var(--velora-white);
             text-decoration: none;
             transition: background-color 0.3s;
         }
-        
+
         .admin-nav-link:hover, .admin-nav-link.active {
             background-color: var(--velora-gold);
         }
@@ -217,17 +217,17 @@ $page_title = 'Admin Dashboard';
 </head>
 <body>
     <?php echo displayFlashMessage(); ?>
-    
+
     <div class="admin-container">
         <div class="admin-header">
             <h1 class="admin-title">Velora Hotel Admin</h1>
-            
+
             <div class="admin-user-info">
                 <span class="admin-username">Welcome, <?php echo $_SESSION['username']; ?></span>
                 <a href="logout.php" class="admin-logout">Logout</a>
             </div>
         </div>
-        
+
         <div class="admin-navigation">
             <a href="index.php" class="admin-nav-link active">Dashboard</a>
             <a href="bookings.php" class="admin-nav-link">Bookings</a>
@@ -240,33 +240,33 @@ $page_title = 'Admin Dashboard';
             <a href="users.php" class="admin-nav-link">Users</a>
             <?php endif; ?>
         </div>
-        
+
         <div class="admin-stats">
             <div class="admin-stat-card">
                 <div class="admin-stat-title">Total Bookings</div>
                 <div class="admin-stat-value"><?php echo $stats['bookings']; ?></div>
             </div>
-            
+
             <div class="admin-stat-card">
                 <div class="admin-stat-title">Available Rooms</div>
                 <div class="admin-stat-value"><?php echo $stats['rooms']; ?></div>
             </div>
-            
+
             <div class="admin-stat-card">
                 <div class="admin-stat-title">Unread Messages</div>
                 <div class="admin-stat-value"><?php echo $stats['messages']; ?></div>
             </div>
-            
+
             <div class="admin-stat-card">
                 <div class="admin-stat-title">Newsletter Subscribers</div>
                 <div class="admin-stat-value"><?php echo $stats['subscribers']; ?></div>
             </div>
         </div>
-        
+
         <div class="admin-sections">
             <div class="admin-section">
                 <h2 class="admin-section-title">Recent Bookings</h2>
-                
+
                 <?php if (!empty($recent_bookings)): ?>
                 <table class="admin-table">
                     <thead>
@@ -288,16 +288,16 @@ $page_title = 'Admin Dashboard';
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                
+
                 <a href="bookings.php" class="admin-view-all">View All Bookings</a>
                 <?php else: ?>
                 <p>No bookings found.</p>
                 <?php endif; ?>
             </div>
-            
+
             <div class="admin-section">
                 <h2 class="admin-section-title">Recent Messages</h2>
-                
+
                 <?php if (!empty($recent_messages)): ?>
                 <table class="admin-table">
                     <thead>
@@ -319,7 +319,7 @@ $page_title = 'Admin Dashboard';
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                
+
                 <a href="messages.php" class="admin-view-all">View All Messages</a>
                 <?php else: ?>
                 <p>No messages found.</p>

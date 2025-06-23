@@ -1,7 +1,7 @@
 <?php
 /**
  * Booking Page
- * 
+ *
  * This page displays the booking form.
  */
 
@@ -31,7 +31,7 @@ unset($_SESSION['booking_form_errors']);
 
 // Include header
 $page_title = 'Book Your Stay';
-include 'includes/header.php';
+include_once 'includes/header.php';
 ?>
 
     <!-- Hero Section -->
@@ -179,18 +179,18 @@ include 'includes/header.php';
             padding: 4rem 0;
             background-color: var(--velora-cream);
         }
-        
+
         .booking-page-container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 1rem;
         }
-        
+
         .booking-page-header {
             text-align: center;
             margin-bottom: 2rem;
         }
-        
+
         .booking-page-title {
             font-family: "Cormorant Garamond", serif;
             font-size: 2.5rem;
@@ -198,38 +198,38 @@ include 'includes/header.php';
             color: var(--velora-dark);
             margin-bottom: 1rem;
         }
-        
+
         .booking-page-description {
             font-size: 1rem;
             color: var(--velora-dark);
             max-width: 600px;
             margin: 0 auto;
         }
-        
+
         .booking-page-errors {
             background-color: #ffebee;
             border-left: 4px solid #f44336;
             padding: 1rem;
             margin-bottom: 2rem;
         }
-        
+
         .booking-page-error {
             color: #d32f2f;
             margin-bottom: 0.5rem;
         }
-        
+
         .booking-page-content {
             background-color: var(--velora-white);
             padding: 2rem;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
-        
+
         .booking-page-selected-room {
             margin-bottom: 2rem;
             padding-bottom: 2rem;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
-        
+
         .booking-page-selected-room h3 {
             font-family: "Cormorant Garamond", serif;
             font-size: 1.5rem;
@@ -237,36 +237,36 @@ include 'includes/header.php';
             color: var(--velora-dark);
             margin-bottom: 1rem;
         }
-        
+
         .booking-page-room-details {
             display: flex;
             gap: 2rem;
         }
-        
+
         .booking-page-room-image {
             width: 300px;
             height: 200px;
             background-size: cover;
             background-position: center;
         }
-        
+
         .booking-page-room-info {
             flex: 1;
         }
-        
+
         .booking-page-room-category {
             font-size: 0.875rem;
             color: var(--velora-gold);
             margin-bottom: 0.5rem;
         }
-        
+
         .booking-page-room-price {
             font-size: 1.25rem;
             font-weight: 600;
             color: var(--velora-dark);
             margin-bottom: 0.5rem;
         }
-        
+
         .booking-page-room-size,
         .booking-page-room-bed,
         .booking-page-room-capacity {
@@ -274,28 +274,28 @@ include 'includes/header.php';
             color: var(--velora-dark);
             margin-bottom: 0.5rem;
         }
-        
+
         .booking-page-room-description {
             font-size: 0.875rem;
             color: var(--velora-dark);
             margin-top: 1rem;
         }
-        
+
         .booking-page-form {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
         }
-        
+
         .booking-page-form-row {
             display: flex;
             gap: 1rem;
         }
-        
+
         .booking-page-form-row .booking-page-form-group {
             flex: 1;
         }
-        
+
         .booking-page-form-group label {
             display: block;
             font-size: 0.875rem;
@@ -303,7 +303,7 @@ include 'includes/header.php';
             color: var(--velora-dark);
             margin-bottom: 0.5rem;
         }
-        
+
         .booking-page-form-group input,
         .booking-page-form-group select,
         .booking-page-form-group textarea {
@@ -312,11 +312,11 @@ include 'includes/header.php';
             border: 1px solid rgba(0, 0, 0, 0.1);
             font-size: 1rem;
         }
-        
+
         .booking-page-form-submit {
             margin-top: 1rem;
         }
-        
+
         .booking-page-submit-button {
             background-color: var(--velora-gold);
             color: var(--velora-white);
@@ -326,21 +326,21 @@ include 'includes/header.php';
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        
+
         .booking-page-submit-button:hover {
             background-color: var(--velora-dark);
         }
-        
+
         @media (max-width: 768px) {
             .booking-page-room-details {
                 flex-direction: column;
             }
-            
+
             .booking-page-room-image {
                 width: 100%;
                 height: 200px;
             }
-            
+
             .booking-page-form-row {
                 flex-direction: column;
                 gap: 1.5rem;
@@ -350,5 +350,5 @@ include 'includes/header.php';
 
 <?php
 // Include footer
-include 'includes/footer.php';
+include_once 'includes/footer.php';
 ?>

@@ -1,7 +1,7 @@
 <?php
 /**
  * Blog Page
- * 
+ *
  * This page displays blog posts or a single blog post if a slug is provided.
  */
 
@@ -20,20 +20,20 @@ if (!empty($slug)) {
     $stmt->bind_param('s', $slug);
     $stmt->execute();
     $result = $stmt->get_result();
-    
+
     if ($result->num_rows > 0) {
         $single_post = $result->fetch_assoc();
-        
+
         // Get author info
         $author_id = $single_post['author_id'];
         $author_name = 'Admin';
-        
+
         if ($author_id) {
             $stmt = $conn->prepare("SELECT full_name FROM users WHERE id = ?");
             $stmt->bind_param('i', $author_id);
             $stmt->execute();
             $author_result = $stmt->get_result();
-            
+
             if ($author_result->num_rows > 0) {
                 $author = $author_result->fetch_assoc();
                 $author_name = $author['full_name'];
@@ -50,7 +50,7 @@ if (!empty($slug)) {
     $stmt->execute();
     $result = $stmt->get_result();
     $blog_posts = [];
-    
+
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $blog_posts[] = $row;
@@ -60,7 +60,7 @@ if (!empty($slug)) {
 
 // Include header
 $page_title = $single_post ? htmlspecialchars($single_post['title']) : 'Blog';
-include 'includes/header.php';
+include_once 'includes/header.php';
 ?>
 
     <!-- Hero Section -->
@@ -77,7 +77,7 @@ include 'includes/header.php';
       <div class="hero-content">
         <h1 class="hero-title"><?php echo $single_post ? htmlspecialchars($single_post['title']) : 'Our Blog'; ?></h1>
         <div class="hero-breadcrumb">
-          <span class="breadcrumb-home">Home</span> / 
+          <span class="breadcrumb-home">Home</span> /
           <?php if ($single_post): ?>
           <a href="/blog.php">Blog</a> / <?php echo htmlspecialchars($single_post['title']); ?>
           <?php else: ?>
@@ -97,14 +97,14 @@ include 'includes/header.php';
                     <span class="blog-post-category"><?php echo htmlspecialchars($single_post['category']); ?></span>
                     <span class="blog-post-author">By <?php echo htmlspecialchars($author_name); ?></span>
                 </div>
-                
+
                 <div class="blog-post-featured-image" style="background-image: url('images/<?php echo htmlspecialchars($single_post['image']); ?>');"></div>
             </div>
-            
+
             <div class="blog-post-content">
                 <?php echo nl2br(htmlspecialchars($single_post['content'])); ?>
             </div>
-            
+
             <div class="blog-post-footer">
                 <a href="/blog.php" class="blog-post-back-button">Back to Blog</a>
             </div>
@@ -117,11 +117,11 @@ include 'includes/header.php';
             <div class="blog-index-header">
                 <h2 class="blog-index-title">Latest from Our Blog</h2>
                 <p class="blog-index-description">
-                    Discover the soul of Velora through curated travel tips, cultural highlights, and behind-the-scenes moments. 
+                    Discover the soul of Velora through curated travel tips, cultural highlights, and behind-the-scenes moments.
                     Our blog brings you closer to the people, places, and inspirations that shape every guest experience.
                 </p>
             </div>
-            
+
             <?php if (empty($blog_posts)): ?>
             <div class="blog-index-empty">
                 <p>No blog posts found. Check back soon for new content!</p>
@@ -156,7 +156,7 @@ include 'includes/header.php';
             padding: 4rem 0;
             background-color: var(--velora-cream);
         }
-        
+
         .blog-post-container {
             max-width: 800px;
             margin: 0 auto;
@@ -164,11 +164,11 @@ include 'includes/header.php';
             background-color: var(--velora-white);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
-        
+
         .blog-post-header {
             margin-bottom: 2rem;
         }
-        
+
         .blog-post-meta {
             display: flex;
             flex-wrap: wrap;
@@ -176,40 +176,40 @@ include 'includes/header.php';
             margin-bottom: 1.5rem;
             padding: 1.5rem 1.5rem 0;
         }
-        
+
         .blog-post-date,
         .blog-post-category,
         .blog-post-author {
             font-size: 0.875rem;
             color: var(--velora-dark);
         }
-        
+
         .blog-post-category {
             color: var(--velora-gold);
         }
-        
+
         .blog-post-featured-image {
             height: 400px;
             background-size: cover;
             background-position: center;
         }
-        
+
         .blog-post-content {
             padding: 2rem 1.5rem;
             font-size: 1rem;
             line-height: 1.7;
             color: var(--velora-dark);
         }
-        
+
         .blog-post-content p {
             margin-bottom: 1.5rem;
         }
-        
+
         .blog-post-footer {
             padding: 0 1.5rem 1.5rem;
             text-align: center;
         }
-        
+
         .blog-post-back-button {
             display: inline-block;
             background-color: var(--velora-gold);
@@ -219,28 +219,28 @@ include 'includes/header.php';
             font-size: 1rem;
             transition: background-color 0.3s;
         }
-        
+
         .blog-post-back-button:hover {
             background-color: var(--velora-dark);
         }
-        
+
         /* Blog Index Styles */
         .blog-index-section {
             padding: 4rem 0;
             background-color: var(--velora-cream);
         }
-        
+
         .blog-index-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
         }
-        
+
         .blog-index-header {
             text-align: center;
             margin-bottom: 3rem;
         }
-        
+
         .blog-index-title {
             font-family: "Cormorant Garamond", serif;
             font-size: 2.5rem;
@@ -248,58 +248,58 @@ include 'includes/header.php';
             color: var(--velora-dark);
             margin-bottom: 1rem;
         }
-        
+
         .blog-index-description {
             font-size: 1rem;
             color: var(--velora-dark);
             max-width: 700px;
             margin: 0 auto;
         }
-        
+
         .blog-index-empty {
             text-align: center;
             padding: 3rem;
             background-color: var(--velora-white);
         }
-        
+
         .blog-index-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2rem;
         }
-        
+
         .blog-index-card {
             background-color: var(--velora-white);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
-        
+
         .blog-index-card-image {
             height: 200px;
             background-size: cover;
             background-position: center;
         }
-        
+
         .blog-index-card-content {
             padding: 1.5rem;
         }
-        
+
         .blog-index-card-meta {
             display: flex;
             justify-content: space-between;
             margin-bottom: 1rem;
         }
-        
+
         .blog-index-card-date,
         .blog-index-card-category {
             font-size: 0.875rem;
             color: var(--velora-dark);
         }
-        
+
         .blog-index-card-category {
             color: var(--velora-gold);
         }
-        
+
         .blog-index-card-title {
             font-family: "Cormorant Garamond", serif;
             font-size: 1.5rem;
@@ -307,14 +307,14 @@ include 'includes/header.php';
             color: var(--velora-dark);
             margin-bottom: 1rem;
         }
-        
+
         .blog-index-card-excerpt {
             font-size: 0.875rem;
             color: var(--velora-dark);
             margin-bottom: 1.5rem;
             line-height: 1.5;
         }
-        
+
         .blog-index-card-read-more {
             display: inline-block;
             color: var(--velora-gold);
@@ -322,16 +322,16 @@ include 'includes/header.php';
             font-size: 1rem;
             transition: color 0.3s;
         }
-        
+
         .blog-index-card-read-more:hover {
             color: var(--velora-dark);
         }
-        
+
         @media (max-width: 768px) {
             .blog-index-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .blog-post-featured-image {
                 height: 250px;
             }
@@ -340,5 +340,5 @@ include 'includes/header.php';
 
 <?php
 // Include footer
-include 'includes/footer.php';
+include_once 'includes/footer.php';
 ?>

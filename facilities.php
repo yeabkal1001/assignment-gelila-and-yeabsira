@@ -1,7 +1,7 @@
 <?php
 /**
  * Facilities Page
- * 
+ *
  * This page displays all hotel facilities.
  */
 
@@ -15,7 +15,7 @@ $facilities = getFacilities();
 
 // Include header
 $page_title = 'Our Facilities';
-include 'includes/header.php';
+include_once 'includes/header.php';
 ?>
 
     <!-- Hero Section -->
@@ -70,18 +70,18 @@ include 'includes/header.php';
             padding: 4rem 0;
             background-color: var(--velora-cream);
         }
-        
+
         .facilities-page-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
         }
-        
+
         .facilities-page-header {
             text-align: center;
             margin-bottom: 3rem;
         }
-        
+
         .facilities-page-title {
             font-family: "Cormorant Garamond", serif;
             font-size: 2.5rem;
@@ -89,42 +89,42 @@ include 'includes/header.php';
             color: var(--velora-dark);
             margin-bottom: 1rem;
         }
-        
+
         .facilities-page-description {
             font-size: 1rem;
             color: var(--velora-dark);
             max-width: 700px;
             margin: 0 auto;
         }
-        
+
         .facilities-page-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2rem;
         }
-        
+
         .facilities-page-card {
             background-color: var(--velora-white);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
-        
+
         .facilities-page-card-image {
             height: 250px;
             background-size: cover;
             background-position: center;
         }
-        
+
         .facilities-page-card-content {
             padding: 1.5rem;
         }
-        
+
         .facilities-page-card-category {
             font-size: 0.875rem;
             color: var(--velora-gold);
             margin-bottom: 0.5rem;
         }
-        
+
         .facilities-page-card-title {
             font-family: "Cormorant Garamond", serif;
             font-size: 1.5rem;
@@ -132,13 +132,13 @@ include 'includes/header.php';
             color: var(--velora-dark);
             margin-bottom: 1rem;
         }
-        
+
         .facilities-page-card-description {
             font-size: 0.875rem;
             color: var(--velora-dark);
             line-height: 1.5;
         }
-        
+
         @media (max-width: 768px) {
             .facilities-page-grid {
                 grid-template-columns: 1fr;
@@ -148,5 +148,5 @@ include 'includes/header.php';
 
 <?php
 // Include footer
-include 'includes/footer.php';
+include_once 'includes/footer.php';
 ?>

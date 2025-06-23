@@ -1,7 +1,7 @@
 <?php
 /**
  * Header Include File
- * 
+ *
  * This file contains the common header elements for all pages.
  */
 
@@ -26,7 +26,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
   </head>
   <body>
     <?php echo displayFlashMessage(); ?>
-    
+
     <!-- Navigation Bar -->
     <nav class="navbar">
       <div class="nav-container">
