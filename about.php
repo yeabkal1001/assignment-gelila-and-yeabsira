@@ -1,11 +1,5 @@
 <?php
-/**
- * About Page
- *
- * This page displays information about the hotel.
- */
 
-// Include necessary files
 require_once 'config/database.php';
 require_once 'includes/functions.php';
 require_once 'includes/session.php';

@@ -1,16 +1,10 @@
 <?php
-/**
- * 404 Error Page
- *
- * This page is displayed when a requested page is not found.
- */
 
-// Include necessary files
 require_once 'config/database.php';
 require_once 'includes/functions.php';
 require_once 'includes/session.php';
 
-// Set HTTP response code
+
 http_response_code(404);
 
 // Include header
