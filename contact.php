@@ -1,24 +1,17 @@
 <?php
-/**
- * Contact Page
- *
- * This page displays the contact form and contact information.
- */
 
-// Include necessary files
 require_once 'config/database.php';
 require_once 'includes/functions.php';
 require_once 'includes/session.php';
 
-// Get form data and errors from session if they exist
+
 $form_data = $_SESSION['contact_form_data'] ?? [];
 $form_errors = $_SESSION['contact_form_errors'] ?? [];
 
-// Clear session data
+
 unset($_SESSION['contact_form_data']);
 unset($_SESSION['contact_form_errors']);
 
-// Include header
 $page_title = 'Contact Us';
 include_once 'includes/header.php';
 ?>
