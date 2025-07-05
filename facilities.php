@@ -1,9 +1,4 @@
 <?php
-/**
- * Facilities Page
- *
- * This page displays all hotel facilities.
- */
 
 // Include necessary files
 require_once 'config/database.php';

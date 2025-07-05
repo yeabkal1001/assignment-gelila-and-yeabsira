@@ -1,9 +1,5 @@
 <?php
-/**
- * Booking Page
- *
- * This page displays the booking form.
- */
+
 
 // Include necessary files
 require_once 'config/database.php';

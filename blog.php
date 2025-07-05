@@ -1,9 +1,5 @@
 <?php
-/**
- * Blog Page
- *
- * This page displays blog posts or a single blog post if a slug is provided.
- */
+
 
 // Include necessary files
 require_once 'config/database.php';

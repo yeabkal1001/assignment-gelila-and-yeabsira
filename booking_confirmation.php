@@ -1,9 +1,5 @@
 <?php
-/**
- * Booking Confirmation Page
- *
- * This page displays the booking confirmation details.
- */
+
 
 // Include necessary files
 require_once 'config/database.php';
