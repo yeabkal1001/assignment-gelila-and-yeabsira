@@ -30,24 +30,6 @@ function redirect($url) {
 }
 
 /**
- * Check if user is logged in
- *
- * @return bool True if user is logged in, false otherwise
- */
-function isLoggedIn() {
-    return isset($_SESSION['user_id']);
-}
-
-/**
- * Check if user is an admin
- *
- * @return bool True if user is an admin, false otherwise
- */
-function isAdmin() {
-    return isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
-}
-
-/**
  * Display error message
  *
  * @param string $message Error message to display

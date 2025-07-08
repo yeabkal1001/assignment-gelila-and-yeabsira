@@ -45,8 +45,10 @@ include_once 'includes/header.php';
       <div class="hero-phone">
         <div class="hero-phone-number">+251909090909</div>
       </div>
+    </section>
 
-      <!-- Booking Form Overlay -->
+    <!-- Booking Section Centered Below Hero -->
+    <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin-top: -60px; margin-bottom: 0; z-index: 10; position: relative;">
       <div class="booking-form" id="booking">
         <form action="/api/booking_form.php" method="post">
           <!-- Check In -->
@@ -153,10 +155,10 @@ include_once 'includes/header.php';
           </button>
         </form>
       </div>
-    </section>
+    </div>
 
-    <!-- Rooms and Suites Section -->
-    <section id="rooms" class="rooms-section">
+    <!-- Rooms and Suites Section: Remove extra margin/padding at the top -->
+    <section id="rooms" class="rooms-section" style="margin-top: 0; padding-top: 0;">
         <div class="rooms-container">
             <!-- Header -->
             <div class="rooms-header">
