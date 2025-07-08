@@ -66,6 +66,54 @@ http://your-domain.com/config/init_db.php
 
 This will create all necessary tables and insert sample data.
 
+### Using Docker (Recommended)
+
+This project includes a `Dockerfile` and `docker-compose.yml` for easy setup and deployment.
+
+1.  **Ensure Docker and Docker Compose are installed.**
+    If not, follow the official installation instructions for your operating system.
+
+2.  **Build and run the containers:**
+    Open a terminal in the project root directory and run:
+    ```bash
+    docker-compose up -d --build
+    ```
+    This command will build the PHP application image and start the application and MySQL database containers in detached mode.
+
+3.  **Access the application:**
+    Once the containers are running, you can access the website at:
+    ```
+    http://localhost:8080
+    ```
+
+4.  **Initialize the database (first time only):**
+    After starting the containers for the first time, navigate to the following URL in your browser to set up the database schema and populate initial data:
+    ```
+    http://localhost:8080/config/init_db.php
+    ```
+    *Note: You only need to do this once. The MySQL data is persisted in a Docker volume (`mysql_data`).*
+
+5.  **Access the admin panel:**
+    ```
+    http://localhost:8080/admin/
+    ```
+    Default admin credentials:
+    - Username: `admin`
+    - Password: `admin123`
+
+6.  **Stopping the application:**
+    To stop the containers, run:
+    ```bash
+    docker-compose down
+    ```
+
+7.  **Viewing logs:**
+    To view the logs for the application or database:
+    ```bash
+    docker-compose logs app
+    docker-compose logs db
+    ```
+
 5. **Set proper permissions**
 
 Ensure the web server has write permissions to the necessary directories:

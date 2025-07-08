@@ -6,10 +6,11 @@
  */
 
 // Database credentials
-define('DB_HOST', 'localhost');
-define('DB_USER', 'velora_user');
-define('DB_PASS', 'velora_password');
-define('DB_NAME', 'velora_hotel');
+// DB_HOST will be overridden by environment variable MYSQL_HOST in Docker environment
+define('DB_HOST', getenv('MYSQL_HOST') ?: 'localhost');
+define('DB_USER', getenv('MYSQL_USER') ?: 'velora_user');
+define('DB_PASS', getenv('MYSQL_PASSWORD') ?: 'velora_password');
+define('DB_NAME', getenv('MYSQL_DB') ?: 'velora_hotel');
 
 // Create connection
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
